@@ -15,7 +15,7 @@ model = joblib.load("superkart_sales_forecast_model_v1_0.joblib")
 REQUIRED_FIELDS = [
     'Product_Weight',
     'Product_Sugar_Content',
-    'Product_Type',
+    'Product_Type_Category',
     'Product_Allocated_Area',
     'Product_MRP',
     'Store_Size',
@@ -29,7 +29,7 @@ def build_input_row(data):
     return {
         'Product_Weight': float(data['Product_Weight']),
         'Product_Sugar_Content': data['Product_Sugar_Content'],
-        'Product_Type': data['Product_Type'],
+        'Product_Type_Category': data['Product_Type_Category'],
         'Product_Allocated_Area_Log': np.log1p(float(data['Product_Allocated_Area'])),
         'Product_MRP': float(data['Product_MRP']),
         'Store_Size': data['Store_Size'],
